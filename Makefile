@@ -33,9 +33,8 @@ run: sys.qcow2 data.qcow2 cloud-init.raw FORCE
 		--inh-caps=+net_admin --ambient-caps=+net_admin \
 		qemu-system-x86_64 \
 		-enable-kvm \
-		-cpu host,migratable=off,+invtsc \
+		-cpu host,migratable=off \
 		-smp $(shell nproc),sockets=1,cores=$(shell nproc),threads=1 \
-		-overcommit cpu-pm=on \
 		-m 16G \
 		-nographic \
 		-serial mon:stdio \
